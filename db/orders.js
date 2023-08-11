@@ -53,6 +53,22 @@ async function createOrder({
   }
 }
 
+async function getAllOpenOrders() {
+  try {
+    const { rows: orders } = await client.query(
+      `
+            SELECT *
+            FROM orders 
+            `
+    );
+
+    return orders;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   createOrder,
+  getAllOpenOrders,
 };
