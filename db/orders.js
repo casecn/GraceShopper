@@ -106,9 +106,25 @@ async function getOrderByUser(user_name) {
   }
 }
 
+async function deleteOrder(id) {
+  try {
+    await client.query(
+      `
+            DELETE FROM orders
+            WHERE id=$1 
+            RETURNING * 
+            `,
+      [id]
+    );
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   createOrder,
   getAllOpenOrders,
   getOrderById,
   getOrderByUser,
+  deleteOrder,
 };
