@@ -68,7 +68,47 @@ async function getAllOpenOrders() {
   }
 }
 
+async function getOrderById(id) {
+  try {
+    const {
+      rows: [order],
+    } = await client.query(
+      `
+            SELECT *
+            FROM orders
+            WHERE id=$1;  
+            `,
+      [id]
+    );
+    return order;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function getOrderByUser(user_name) {
+  try {
+    const {
+      rows: [order],
+    } = await client.query(
+      `
+            SELECT orders.*, users.user_name
+            FROM orders
+            JOIN users ON orders.user_id = users.id
+            WHERE user_name=$1; 
+            `,
+      [user_name]
+    );
+
+    return order;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   createOrder,
   getAllOpenOrders,
+  getOrderById,
+  getOrderByUser,
 };
