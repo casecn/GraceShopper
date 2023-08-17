@@ -7,6 +7,7 @@ import {
   getItemById,
   getItemByTitle,
   getItemByCategory,
+  deleteItem,
 } from "./db/items.js";
 
 //GET ROUTES
@@ -142,6 +143,30 @@ itemsRouter.patch("/:itemId", async (req, res, next) => {
     const updatedItem = await updateItem(updateFields);
 
     res.send(updatedItem);
+  } catch ({ name, message }) {
+    next({ name, message });
+  }
+});
+
+// DELETE ROUTES
+
+// DELETE /api/items/:itemId - Remove an item by ID
+itemsRouter.delete("/;itemId", async (req, res, next) => {
+  const { itemId } = req.params;
+
+  try {
+    const existingItem = await getItemById(itemId);
+
+    if (!existingItem) {
+      next({
+        name: "itemDoesNotExistError",
+        message: `Item ${itemId} does not exist`,
+      });
+    }
+
+    await deleteItem(itemId);
+
+    res.send(`Item ${itemId} deleted`);
   } catch ({ name, message }) {
     next({ name, message });
   }

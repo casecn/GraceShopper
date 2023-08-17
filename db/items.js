@@ -191,6 +191,20 @@ async function removeItemFromCategory({ itemId, categoryId }) {
   }
 }
 
+async function deleteItem(itemId) {
+  try {
+    const { rows } = await client.query(
+      `
+      DELETE FROM items
+      WHERE id = $1; 
+      `,
+      [itemId]
+    );
+  } catch (error) {
+    throw error;
+  }
+}
+
 export {
   createItem,
   updateItem,
@@ -202,4 +216,5 @@ export {
   getItemByCategory,
   attachItemToCategory,
   removeItemFromCategory,
+  deleteItem,
 };
