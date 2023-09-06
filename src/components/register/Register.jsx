@@ -171,16 +171,21 @@ const Register = () => {
             <div>
               <div className="border">
                 <label className="font-bold text-xl pb-2 py-4 flex justify-center">
-                  To Register: Please Fill out all fields
+                  Register:
                 </label>
-
+                <p>
+                  Already have an account?{" "}
+                  <Link to="/login" className="text-blue-500">
+                    Login
+                  </Link>
+                </p>
                 <form className="w-full flex m-2 flex-col py-2">
                   <label className="font-bold">Username</label>
                   <input
                     className="m-2"
                     type="text"
                     required
-                    placeholder="Username"
+                    placeholder="Username*"
                     onChange={handleUsernameChange}
                   />
                   <label className="font-bold">Password</label>
@@ -188,7 +193,7 @@ const Register = () => {
                     className="m-2"
                     type="password"
                     required
-                    placeholder="Password"
+                    placeholder="Password*"
                     onChange={handlePasswordChange}
                   />
 
@@ -197,7 +202,7 @@ const Register = () => {
                     className="m-2"
                     type="text"
                     required
-                    placeholder="Email"
+                    placeholder="Email*"
                     onChange={handleEmailChange}
                   ></input>
 
@@ -206,7 +211,7 @@ const Register = () => {
                     className="m-2"
                     type="text"
                     required
-                    placeholder="First Name"
+                    placeholder="First Name*"
                     onChange={handleFirst_name}
                   ></input>
 
@@ -215,7 +220,7 @@ const Register = () => {
                     className="m-2"
                     type="text"
                     required
-                    placeholder="Last Name"
+                    placeholder="Last Name*"
                     onChange={handleLast_name}
                   ></input>
 
@@ -224,7 +229,7 @@ const Register = () => {
                     className="m-2"
                     type="text"
                     required
-                    placeholder="Address 1"
+                    placeholder="Address 1*"
                     onChange={handleAddress_1}
                   ></input>
 
@@ -242,7 +247,7 @@ const Register = () => {
                     className="m-2"
                     required
                     onChange={handleCityChange}
-                    placeholder="City"
+                    placeholder="City*"
                   ></input>
 
                   <label className="font-bold">State</label>
@@ -250,7 +255,7 @@ const Register = () => {
                     className="m-2"
                     required
                     onChange={handleStateChange}
-                    placeholder="State"
+                    placeholder="State*"
                   ></input>
 
                   <label className="font-bold">Zip Code</label>
@@ -258,7 +263,7 @@ const Register = () => {
                     className="m-2"
                     required
                     onChange={handleZip_codeChange}
-                    placeholder="Zip Code"
+                    placeholder="Zip Code*"
                   ></input>
 
                   <label className="font-bold">Country</label>
@@ -266,7 +271,7 @@ const Register = () => {
                     className="m-2"
                     required
                     onChange={handleCountryChange}
-                    placeholder="Country"
+                    placeholder="Country*"
                   ></input>
 
                   <label className="font-bold">Shipping Address 1</label>
@@ -274,7 +279,7 @@ const Register = () => {
                     className="m-2"
                     required
                     onChange={handleShipAddress1Change}
-                    placeholder="Shipping Address 1"
+                    placeholder="Shipping Address 1*"
                   ></input>
 
                   <label className="font-bold">Shipping Address 2</label>
@@ -290,7 +295,7 @@ const Register = () => {
                     className="m-2"
                     required
                     onChange={handleShipCityChange}
-                    placeholder="Shipping City"
+                    placeholder="Shipping City*"
                   ></input>
 
                   <label className="font-bold">Shipping State</label>
@@ -298,7 +303,7 @@ const Register = () => {
                     className="m-2"
                     required
                     onChange={handleShipStateChange}
-                    placeholder="Shipping State"
+                    placeholder="Shipping State*"
                   ></input>
 
                   <label className="font-bold">Shipping Zip Code</label>
@@ -306,7 +311,7 @@ const Register = () => {
                     className="m-2"
                     required
                     onChange={handleShipZip_codeChange}
-                    placeholder="Shipping Zip Code"
+                    placeholder="Shipping Zip Code*"
                   ></input>
 
                   <label className="font-bold">Shipping Country</label>
@@ -314,7 +319,7 @@ const Register = () => {
                     className="m-2"
                     required
                     onChange={handleShipCountryChange}
-                    placeholder="Shipping Country"
+                    placeholder="Shipping Country*"
                   ></input>
 
                   <button
@@ -329,12 +334,6 @@ const Register = () => {
                   </button>
                 </form>
                 {error && <p className="text-red-500">{setError}</p>}
-                <p>
-                  Already have an account?{" "}
-                  <Link to="/login" className="text-blue-500">
-                    Login
-                  </Link>
-                </p>
               </div>
             </div>
           </div>
