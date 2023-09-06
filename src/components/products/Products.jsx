@@ -9,7 +9,7 @@ import { getAllItems } from "../ApiCalls";
 const Products = () => {
   const [items, setItems] = useState([]);
  //const [isLoading, setIsLoading] = useState(true);
-
+  
   useEffect(() => {
     const getItems = async () => {
       try {
@@ -30,7 +30,7 @@ const Products = () => {
             id="title"
             className="p-4 pb-0 bg-gray-200 font-bold rounded-lg text-3xl"
           >
-            Product Management
+            Manage Products
           </div>
           <div className="absolute right-0 m-3 w-1/6 border-1 border-black">
             <Link
@@ -41,7 +41,7 @@ const Products = () => {
             </Link>
           </div>
         </div>
-        <div id="body" className="m-4 p-2 overflow-scroll ">
+        <div id="body" className="m-4 p-2  ">
           {/* ToDo: use <div>s for table instead of table tags */}
           {/* ToDo: add pagination to the table */}
           <table className="table-auto ">

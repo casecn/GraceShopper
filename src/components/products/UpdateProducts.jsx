@@ -1,4 +1,4 @@
-import { Form, useParams, Link } from "react-router-dom";
+import { Form, useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getItemById } from "../ApiCalls";
 import { updateProduct } from "./ProductHelpers"
@@ -11,6 +11,8 @@ const UpdateProduct = () => {
   const [price, setPrice] = useState("");
   const [inventory, setInventory] = useState(0);
   const [fileName, setFileName] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getItemDetail = async () => {
@@ -73,7 +75,7 @@ const UpdateProduct = () => {
         const result = await updateProduct(itemId ,fields);
         console.log("RETURN RESULTS", result)
         setItemDetail(result);
-
+        navigate("/products");
       } catch (error) {
         console.error("Error Saving product: ", error);
       }

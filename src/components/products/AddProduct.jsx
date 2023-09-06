@@ -1,4 +1,4 @@
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import { addProduct } from "./ProductHelpers";
@@ -11,6 +11,7 @@ const AddProduct = () => {
   const [inventory, setInventory] = useState(0);
   const [fileName, setFileName] = useState("");
 
+    const navigate = useNavigate();
    function setItemDetail ( item ) {
     setTitle(item.title);
     setPrice(`$${item.price}`);
@@ -60,7 +61,7 @@ const AddProduct = () => {
         const result = await addProduct(fields);
         console.log("RETURN RESULTS", result)
         setItemDetail(result);
-
+        navigate("/products");
       } catch (error) {
         console.error("Error Saving product: ", error);
       }
