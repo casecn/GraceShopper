@@ -17,7 +17,7 @@ import Products from "./components/products/Products";
 import UpdateProduct from "./components/products/UpdateProducts";
 import DeleteProduct from "./components/products/DeleteProducts";
 import AddProduct from "./components/products/AddProduct";
-// import Users from "./components/user/manageUser";
+import Users from "./components/user/manageUser";
 import DeleteUser from "./components/user/DeleteUser";
 import UpdateUser from "./components/user/updateUser";
 
